@@ -14,6 +14,7 @@ export default function CreateListing() {
   const navigate = useNavigate();
   //for images
   const [files, setFiles] = useState([]);
+  //default form data
   const [formData, setFormData] = useState({
     imageUrls: [],
     name: "",
@@ -67,6 +68,7 @@ export default function CreateListing() {
       const fileName = new Date().getTime() + file.name;
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, file);
+      //dont wanna see the progress while uploading pictures
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -86,6 +88,7 @@ export default function CreateListing() {
     });
   };
 
+  //deleting the image when press delete
   const handleRemoveImage = (index) => {
     setFormData({
       ...formData,
@@ -93,6 +96,7 @@ export default function CreateListing() {
     });
   };
 
+  //by checking the checks it actually stores in the form data
   const handleChange = (e) => {
     if (e.target.id === "sale" || e.target.id === "rent") {
       setFormData({
@@ -125,6 +129,7 @@ export default function CreateListing() {
   };
 
   const handleSubmit = async (e) => {
+    //prevent refreshing
     e.preventDefault();
     try {
       if (formData.imageUrls.length < 1)
@@ -133,6 +138,7 @@ export default function CreateListing() {
         return setError("Discount price must be lower than regular price");
       setLoading(true);
       setError(false);
+      //just storing the data in db
       const res = await fetch("/api/listing/create", {
         method: "POST",
         headers: {
