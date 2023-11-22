@@ -46,6 +46,7 @@ export default function CreateListing() {
         console.log(data.message);
         return;
       }
+      setFormData(data);
     };
     fetchListing();
   }, []);
@@ -154,7 +155,7 @@ export default function CreateListing() {
       setLoading(true);
       setError(false);
       //just storing the data in db
-      const res = await fetch(`/api/listing/update/${params.listing.Id}`, {
+      const res = await fetch(`/api/listing/update/${params.listingId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
