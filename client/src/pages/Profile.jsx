@@ -263,7 +263,7 @@ export default function Profile() {
                 />
               </Link>
               <Link
-                className="text-slate-700 font-semibold flex-1 hover:underline truncate gap-4 "
+                className="text-slate-700 font-semibold flex-1 p-3 hover:underline truncate gap-4 "
                 to={`/listing/${listing._id}`}
               >
                 <p>{listing.name}</p>
