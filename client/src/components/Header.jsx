@@ -2,8 +2,8 @@ import { FaSearch } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+
 export default function Header() {
-  //using slice
   const { currentUser } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
@@ -22,13 +22,12 @@ export default function Header() {
       setSearchTerm(searchTermFromUrl);
     }
   }, [location.search]);
-
   return (
     <header className="bg-slate-200 shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="text-slate-500">Metro</span>
+            <span className="text-slate-500">Sahand</span>
             <span className="text-slate-700">Estate</span>
           </h1>
         </Link>
@@ -44,7 +43,7 @@ export default function Header() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button>
-            <FaSearch className="text-slate-500" />
+            <FaSearch className="text-slate-600" />
           </button>
         </form>
         <ul className="flex gap-4">
@@ -58,7 +57,6 @@ export default function Header() {
               About
             </li>
           </Link>
-
           <Link to="/profile">
             {currentUser ? (
               <img
@@ -67,7 +65,7 @@ export default function Header() {
                 alt="profile"
               />
             ) : (
-              <li className=" text-slate-700 hover:underline">Sign In</li>
+              <li className=" text-slate-700 hover:underline"> Sign in</li>
             )}
           </Link>
         </ul>

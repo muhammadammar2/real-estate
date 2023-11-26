@@ -54,7 +54,7 @@ export default function Home() {
           <br />
           effortlessly.
         </h1>
-        <div className="text-gray-400 text-xs sm:text-sm">
+        <div className="text-slate-400 text-xs sm:text-sm">
           Metro Estate offers the finest selection of residences for your next
           ideal living space.
           <br />

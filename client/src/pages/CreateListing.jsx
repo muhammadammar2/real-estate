@@ -256,7 +256,7 @@ export default function CreateListing() {
                 min="1"
                 max="10"
                 required
-                className="p-3 border border-gray-300 rounded-lg"
+                className="p-3 border border-slate-300 rounded-lg"
                 onChange={handleChange}
                 value={formData.bedrooms}
               />
@@ -269,7 +269,7 @@ export default function CreateListing() {
                 min="1"
                 max="10"
                 required
-                className="p-3 border border-gray-300 rounded-lg"
+                className="p-3 border border-slate-300 rounded-lg"
                 onChange={handleChange}
                 value={formData.bathrooms}
               />
@@ -282,7 +282,7 @@ export default function CreateListing() {
                 min="50"
                 max="10000000"
                 required
-                className="p-3 border border-gray-300 rounded-lg"
+                className="p-3 border border-slate-300 rounded-lg"
                 onChange={handleChange}
                 value={formData.regularPrice}
               />
@@ -301,7 +301,7 @@ export default function CreateListing() {
                   min="0"
                   max="10000000"
                   required
-                  className="p-3 border border-gray-300 rounded-lg"
+                  className="p-3 border border-slate-300 rounded-lg"
                   onChange={handleChange}
                   value={formData.discountPrice}
                 />
@@ -319,14 +319,14 @@ export default function CreateListing() {
         <div className="flex flex-col flex-1 gap-4">
           <p className="font-semibold">
             Images:
-            <span className="font-normal text-gray-600 ml-2">
+            <span className="font-normal text-slate-600 ml-2">
               The first image will be the cover (max 6)
             </span>
           </p>
           <div className="flex gap-4">
             <input
               onChange={(e) => setFiles(e.target.files)}
-              className="p-3 border border-gray-300 rounded w-full"
+              className="p-3 border border-slate-300 rounded w-full"
               type="file"
               id="images"
               accept="image/*"
