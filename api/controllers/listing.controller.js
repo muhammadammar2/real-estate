@@ -116,3 +116,27 @@ export const getListings = async (req, res, next) => {
     next(error);
   }
 };
+
+//add to cart
+export const addToCart = async (req, res, next) => {
+  const { listingId, quantity } = req.body;
+  if (!listingId || !quantity || quantity <= 0) {
+    return next(errorHandler(400), "Invalid Request");
+  }
+  try {
+    // Fetch the listing from MongoDB
+    const listing = await Listing.findById(listingId);
+
+    if (!listing) {
+      return next(errorHandler(404), "Listing not found");
+    }
+
+    // Add the listing to the cart
+    cart.push({ listingId, quantity });
+
+    res.json({ success: true, cart });
+  } catch (error) {
+    console.error(error);
+    return next(errorHandler(500), "Internal Server Error");
+  }
+};
